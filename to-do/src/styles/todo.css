@@ -1,0 +1,36 @@
+.container {
+    background-color: hsl(0, 0%, 98%);
+    position: relative;
+}
+
+.container-bg {
+    background-image: url('../images/bg-desktop-light.jpg');
+    height: 300px;
+    background-repeat: no-repeat;
+}
+
+.centered-container {
+    position: absolute;
+    left: 56%;
+    top: 207px;
+    transform: translate(-50%, -50%);
+    width: 600px;
+}
+
+.centered-container .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.centered-container .header h1 {
+    color: white;
+    letter-spacing: 0.5em;
+}
+
+.centered-container .header .img-state {
+    background-image: url("../images/icon-moon.svg");
+    height: 55px;
+    width: 60px;
+    background-repeat: no-repeat;
+}
