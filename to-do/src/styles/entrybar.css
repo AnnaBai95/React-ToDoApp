@@ -2,32 +2,30 @@ input[type="checkbox"] {
     display: none;
 }
 
-input[type="text"] {
-    font-family: 'Josefin Sans', sans-serif !important;
-    font-size: 1.125rem !important;
-}
-
-
 .input-group {
     background: white;
     height: 50px;
     border-radius: 6px;
-    padding: 20px;
+    padding: 9px 20px;
     display: flex;
     align-items: center;
 }
 
-.input-group .rounded-check {
+.input-group input[type="text"] {
+    font-size: 1.125rem;
+}
+
+.rounded-check {
     position: relative;
 }
 
-.input-group .rounded-check label {
+.rounded-check label {
     position: relative;
     padding-left: 30px;
     cursor: pointer;
 }
 
-.input-group .rounded-check label::before {
+.rounded-check label::before {
     content: "";
     position: absolute;
     left: 0;
@@ -39,19 +37,26 @@ input[type="text"] {
     background-color: white;
 }
 
-.input-group .rounded-check+label:before {
+.rounded-check+label:before {
     content: "";
 }
 
-.input-group .rounded-check input[type="checkbox"]:checked+label::before {
+.rounded-check input[type="checkbox"]+label:hover::before {
+    border-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border-image-slice: 1;
+    border-width: 1px;
+    border-radius: 50%;
+    background-color: transparent;
+}
+
+.rounded-check input[type="checkbox"]:checked+label::before {
     background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
 }
 
-
-.input-group .rounded-check input[type="checkbox"]:checked+label::after {
+.rounded-check input[type="checkbox"]:checked+label::after {
     content: url("../images/icon-check.svg");
     position: absolute;
-    top: 0px;
+    top: 1px;
     left: 5px;
 }
 
@@ -63,10 +68,11 @@ input[type="text"] {
 }
 
 .input-group .input-box:focus {
-    border:none;
+    border: none;
 }
 
-::placeholder{
-    font-weight: 700;
+::placeholder {
+    font-size: 1.125rem;
+    font-weight: 400;
     font-family: 'Josefin Sans', sans-serif !important;
 }

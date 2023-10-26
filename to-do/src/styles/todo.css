@@ -12,7 +12,7 @@
 .centered-container {
     position: absolute;
     left: 56%;
-    top: 207px;
+    top: 245px;
     transform: translate(-50%, -50%);
     width: 600px;
 }
@@ -33,4 +33,5 @@
     height: 55px;
     width: 60px;
     background-repeat: no-repeat;
+    cursor: pointer;
 }

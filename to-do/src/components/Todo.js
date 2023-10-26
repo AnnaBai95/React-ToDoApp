@@ -6,14 +6,14 @@ export default function () {
     return (
 
         <div className="container">
-        <div className="container-bg"></div>
+            <div className="container-bg"></div>
             <div className="centered-container">
-            <div className="header">
-                <h1>TODO</h1>
-                <img className="img-state"/>
-            </div>
-            <EntryBar />
-             <List /> 
+                <div className="header">
+                    <h1>TODO</h1>
+                    <div className="img-state"></div>
+                </div>
+                <EntryBar />
+                <List />
             </div>
         </div>
     );

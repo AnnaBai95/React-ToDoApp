@@ -1,4 +1,6 @@
 body{
   font-family: 'Josefin Sans', sans-serif !important;
   font-size: 1.125rem !important;
+  background-color: hsl(236, 33%, 92%);
+  height: 100vh;
 }
