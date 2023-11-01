@@ -3,4 +3,6 @@ body{
   font-size: 1.125rem !important;
   background-color: hsl(236, 33%, 92%);
   height: 100vh;
+  max-width: 1440px;
+  margin: auto;
 }

@@ -3,6 +3,7 @@
     border-radius: 6px;
     margin-top: 30px;
     color: hsl(235, 19%, 35%);
+    box-shadow: 0px 10px 16px -3px hsl(233, 11%, 84%);
 }
 
 .list-box .item-list .item {
@@ -21,9 +22,27 @@
     justify-content: space-between;
     padding: 12px 14px;
     font-size: 16px;
+    color: hsl(236, 9%, 61%);
 }
+
 
 .list-box .list-footer .flex-gap {
     display: flex;
     gap: 16px;
+}
+
+.text-bold{
+    font-weight: 700;
+}
+
+.text-normal{
+    font-weight: 400;
+}
+
+.active-link{
+    color: hsl(220, 98%, 61%);
+}
+
+.links{
+    cursor: pointer;
 }
