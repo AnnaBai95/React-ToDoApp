@@ -1,23 +1,32 @@
 import '../styles/list.css';
 
+import CloseIcon from '../images/icon-cross.svg';
+
 export default function List() {
     return (
         <>
             <div className="list-box">
                 <div className="item-list">
                     <div className="item">
-                        <div className="rounded-check">
-                            <input type="checkbox" id="item1"></input>
-                            <label htmlFor="item1"></label>
+                        <div className="flex-row center-align">
+                            <div className="rounded-check">
+                                <input type="checkbox" id="item1"></input>
+                                <label htmlFor="item1"></label>
+                            </div>
+                            <p className="task">Complete online javascript course</p>
                         </div>
-                        <p>Complete online javascript course</p>
+                        <img src={CloseIcon} alt="Image of an x" className="close-icon" />
                     </div>
                     <div className="item">
-                        <div className="rounded-check">
-                            <input type="checkbox" id="item2"></input>
-                            <label htmlFor="item2"></label>
+                        <div className="flex-row center-align">
+                            <div className="rounded-check">
+                                <input type="checkbox" id="item2"></input>
+                                <label htmlFor="item2"></label>
+                            </div>
+                            <p className="task">Jog around the park three times</p>
+
                         </div>
-                        <p>Jog around the park three times</p>
+                        <img src={CloseIcon} alt="Image of an x" className="close-icon" />
                     </div>
                 </div>
                 <div className="list-footer">

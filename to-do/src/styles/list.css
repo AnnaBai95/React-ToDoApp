@@ -9,12 +9,17 @@
 .list-box .item-list .item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border-bottom: 1px solid hsl(233, 11%, 84%);
     padding: 9px 20px;
 }
 
 .list-box .item-list .item:hover {
     cursor: pointer;
+}
+
+.list-box .item-list .item:hover .close-icon {
+    display: block;
 }
 
 .list-box .list-footer {
@@ -45,4 +50,21 @@
 
 .links{
     cursor: pointer;
+}
+
+.flex-row{
+    display: flex;
+}
+
+.center-align{
+    align-items: center ;
+}
+
+
+.task{
+    margin-top:24px;
+}
+
+.close-icon{
+    display: none;
 }

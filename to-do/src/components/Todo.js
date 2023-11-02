@@ -1,8 +1,24 @@
 import EntryBar from './EntryBar';
 import List from './List';
 import '../styles/todo.css';
+import { useState } from 'react';
 
 export default function () {
+
+    const [tasks, setTasks] = useState(null);
+
+    const handleAddTask = (newTask) => {
+        setTasks([...tasks, { newTask, completed: false }]);
+    };
+
+    const handleRemoveTask = (taskIndex) => {
+
+    };
+
+    const handleCompleteTask = () => {
+
+    };
+
     return (
 
         <div className="container">
