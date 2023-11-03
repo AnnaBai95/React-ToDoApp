@@ -2,44 +2,48 @@ import '../styles/list.css';
 
 import CloseIcon from '../images/icon-cross.svg';
 
-export default function List() {
+export default function List({ tasks }) {
+
     return (
         <>
             <div className="list-box">
                 <div className="item-list">
-                    <div className="item">
-                        <div className="flex-row center-align">
-                            <div className="rounded-check">
-                                <input type="checkbox" id="item1"></input>
-                                <label htmlFor="item1"></label>
+                    {tasks.map((task, index) => (
+                        <div className="item" key={index}>
+                            <div className="flex-row center-align">
+                                <div className="rounded-check">
+                                    <input type="checkbox" id="item1"></input>
+                                    <label htmlFor="item1"></label>
+                                </div>
+                                <p className="task">{task.newTask}</p>
                             </div>
-                            <p className="task">Complete online javascript course</p>
+                            <img src={CloseIcon} alt="Image of an x" className="close-icon" />
                         </div>
-                        <img src={CloseIcon} alt="Image of an x" className="close-icon" />
-                    </div>
-                    <div className="item">
-                        <div className="flex-row center-align">
-                            <div className="rounded-check">
-                                <input type="checkbox" id="item2"></input>
-                                <label htmlFor="item2"></label>
-                            </div>
-                            <p className="task">Jog around the park three times</p>
 
-                        </div>
-                        <img src={CloseIcon} alt="Image of an x" className="close-icon" />
-                    </div>
+                    ))}
                 </div>
                 <div className="list-footer">
-                    <span>5 items left</span>
-                    <div className="flex-gap text-bold">
-                        <a className="active-link links">All</a>
-                        <a className="links">Active</a>
-                        <a className="links">Completed</a>
-                    </div>
-                    <a className="links">Clear Completed</a>
+                    {tasks.length > 0 ?
+                        <>
+                            <span>{tasks.length > 0 ? tasks.length : 0} items left</span>
+                            <div className="flex-gap text-bold">
+                                <a className="active-link links">All</a>
+                                <a className="links">Active</a>
+                                <a className="links">Completed</a>
+                            </div>
+                            <a className="links">Clear Completed</a>
+                        </>
+                        :
+                        <p className='notify'>Your todo list is empty. Add a task to your todo list</p>
+                    }
                 </div>
+
             </div>
-            <p class="instructions">Drag and drop to reorder list</p>
+            {tasks.length > 0 ?
+                <p className="instructions">Drag and drop to reorder list</p>
+                :
+                ''
+            }
         </>
     );
 }

@@ -5,7 +5,7 @@ import { useState } from 'react';
 
 export default function () {
 
-    const [tasks, setTasks] = useState(null);
+    const [tasks, setTasks] = useState([]);
 
     const handleAddTask = (newTask) => {
         setTasks([...tasks, { newTask, completed: false }]);
@@ -28,8 +28,8 @@ export default function () {
                     <h1>TODO</h1>
                     <div className="img-state"></div>
                 </div>
-                <EntryBar />
-                <List />
+                <EntryBar onAddTask={handleAddTask} />
+                <List tasks={tasks} />
             </div>
         </div>
     );

@@ -68,3 +68,9 @@
 .close-icon{
     display: none;
 }
+
+.notify{
+    color: hsl(220, 98%, 61%);
+    font-weight: 700;
+    margin: auto;
+}
