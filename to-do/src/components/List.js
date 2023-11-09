@@ -2,7 +2,7 @@ import '../styles/list.css';
 
 import CloseIcon from '../images/icon-cross.svg';
 
-export default function List({ tasks }) {
+export default function List({ tasks, onRemoveTask, onToggleTaskStatus }) {
 
     return (
         <>
@@ -12,12 +12,12 @@ export default function List({ tasks }) {
                         <div className="item" key={index}>
                             <div className="flex-row center-align">
                                 <div className="rounded-check">
-                                    <input type="checkbox" id="item1"></input>
-                                    <label htmlFor="item1"></label>
+                                    <input type="checkbox" id={`item${index}`} onChange={() => onToggleTaskStatus(index)}></input>
+                                    <label htmlFor={`item${index}`}></label>
                                 </div>
-                                <p className="task">{task.newTask}</p>
+                                <p className={task.completed ? 'task strike' : 'task'}>{task.newTask}</p>
                             </div>
-                            <img src={CloseIcon} alt="Image of an x" className="close-icon" />
+                            <img src={CloseIcon} alt="Image of an x" className="close-icon" onClick={() => onRemoveTask(index)} />
                         </div>
 
                     ))}

@@ -1,7 +1,7 @@
 import '../styles/entrybar.css';
 import { useState } from 'react';
 
-export default function EntryBar({ onAddTask }) {
+export default function EntryBar({ onAddTask, onCompleteAllTask }) {
 
     const [taskInput, setTaskInput] = useState('');
 
@@ -18,10 +18,11 @@ export default function EntryBar({ onAddTask }) {
         }
     }
 
+
     return (
         <div className="input-group">
             <div className="rounded-check">
-                <input type="checkbox" id="allcheck"></input>
+                <input type="checkbox" id="allcheck" onChange={onCompleteAllTask}></input>
                 <label htmlFor="allcheck"></label>
             </div>
 

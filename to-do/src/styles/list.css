@@ -65,6 +65,11 @@
     margin-top:24px;
 }
 
+.task.strike{
+    color: hsl(233, 11%, 84%);
+    text-decoration: line-through hsl(236, 9%, 61%);
+}
+
 .close-icon{
     display: none;
 }
