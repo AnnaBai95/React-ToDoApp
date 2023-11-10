@@ -6,6 +6,7 @@ import { useState } from 'react';
 export default function () {
 
     const [tasks, setTasks] = useState([]);
+    const [allTasksCompleted, setAllTasksCompleted] = useState(false)
 
     const handleAddTask = (newTask) => {
         setTasks([...tasks, { newTask, completed: false }]);
@@ -28,9 +29,9 @@ export default function () {
     };
 
     const handleToggleAllTasks = () => {
-        const completed = true;
-        const updatedTasks = tasks.map((task) => ({ ...tasks, completed: true }));
-        console.log("This this the the array after", updatedTasks);
+        const completed = !allTasksCompleted;
+        setAllTasksCompleted(completed);
+        const updatedTasks = tasks.map((task) => ({ ...task, completed: completed }));
         setTasks(updatedTasks);
     }
 
@@ -43,7 +44,7 @@ export default function () {
                     <h1>TODO</h1>
                     <div className="img-state"></div>
                 </div>
-                <EntryBar onAddTask={handleAddTask} onCompleteAllTask={handleToggleAllTasks} />
+                <EntryBar onAddTask={handleAddTask} onCompleteAllTask={handleToggleAllTasks} allTasksAreCompleted={allTasksCompleted} />
                 <List tasks={tasks} onRemoveTask={handleRemoveTask} onToggleTaskStatus={handleCompleteTask} />
             </div>
         </div>

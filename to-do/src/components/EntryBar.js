@@ -1,7 +1,7 @@
 import '../styles/entrybar.css';
 import { useState } from 'react';
 
-export default function EntryBar({ onAddTask, onCompleteAllTask }) {
+export default function EntryBar({ onAddTask, onCompleteAllTask, allTasksAreCompleted }) {
 
     const [taskInput, setTaskInput] = useState('');
 
@@ -29,7 +29,9 @@ export default function EntryBar({ onAddTask, onCompleteAllTask }) {
             <input type="text" placeholder="Create a new todo..." className="input-box"
                 value={taskInput}
                 onKeyUp={handleEnterKeyUp}
-                onChange={(e) => setTaskInput(e.target.value)}></input>
+                onChange={(e) => setTaskInput(e.target.value)}
+                checked={allTasksAreCompleted}
+            ></input>
         </div>
 
     );
