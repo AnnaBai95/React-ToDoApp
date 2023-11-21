@@ -2,7 +2,8 @@ import '../styles/list.css';
 
 import CloseIcon from '../images/icon-cross.svg';
 
-export default function List({ tasks, onRemoveTask, onToggleTaskStatus }) {
+export default function List({ tasks, onRemoveTask, onToggleTaskStatus, onShowActiveTasks, onShowAllTask, onShowCompletedTasks,
+    onClearCompletedTasks }) {
 
     return (
         <>
@@ -27,11 +28,11 @@ export default function List({ tasks, onRemoveTask, onToggleTaskStatus }) {
                         <>
                             <span>{tasks.length > 0 ? tasks.length : 0} items left</span>
                             <div className="flex-gap text-bold">
-                                <a className="active-link links">All</a>
-                                <a className="links">Active</a>
-                                <a className="links">Completed</a>
+                                <a className="active-link links" onClick={onShowAllTask}>All</a>
+                                <a className="links" onClick={onShowActiveTasks}>Active</a>
+                                <a className="links" onClick={onShowCompletedTasks}>Completed</a>
                             </div>
-                            <a className="links">Clear Completed</a>
+                            <a className="links" onClick={() => onClearCompletedTasks()}>Clear Completed</a>
                         </>
                         :
                         <p className='notify'>Your todo list is empty. Add a task to your todo list</p>
