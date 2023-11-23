@@ -3,6 +3,7 @@ import List from './List';
 import '../styles/todo.css';
 import { useState } from 'react';
 
+
 export default function () {
 
     const [tasks, setTasks] = useState([]);
@@ -68,29 +69,29 @@ export default function () {
     }
 
     return (
-
-        <div className="container">
-            <div className="container-bg"></div>
-            <div className="centered-container">
-                <div className="header">
-                    <h1>TODO</h1>
-                    <div className="img-state"></div>
+       
+            <div className="container">
+                <div className="container-bg"></div>
+                <div className="centered-container">
+                    <div className="header">
+                        <h1>TODO</h1>
+                        <div className="img-state"></div>
+                    </div>
+                    <EntryBar
+                        onAddTask={handleAddTask}
+                        onCompleteAllTask={handleToggleAllTasks}
+                        allTasksAreCompleted={allTasksCompleted}
+                    />
+                    <List
+                        tasks={filteredTasks}
+                        onRemoveTask={handleRemoveTask}
+                        onToggleTaskStatus={handleCompleteTask}
+                        onShowActiveTasks={handleShowActiveTasksOnly}
+                        onShowAllTask={handleShowAllTasks}
+                        onShowCompletedTasks={handleShowCompletedTasksOnly}
+                        onClearCompletedTasks={handleClearCompleted}
+                    />
                 </div>
-                <EntryBar
-                    onAddTask={handleAddTask}
-                    onCompleteAllTask={handleToggleAllTasks}
-                    allTasksAreCompleted={allTasksCompleted}
-                />
-                <List
-                    tasks={filteredTasks}
-                    onRemoveTask={handleRemoveTask}
-                    onToggleTaskStatus={handleCompleteTask}
-                    onShowActiveTasks={handleShowActiveTasksOnly}
-                    onShowAllTask={handleShowAllTasks}
-                    onShowCompletedTasks={handleShowCompletedTasksOnly}
-                    onClearCompletedTasks={handleClearCompleted}
-                />
             </div>
-        </div>
     );
 }

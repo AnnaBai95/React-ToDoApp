@@ -1,12 +1,16 @@
 import '../styles/list.css';
 
+
 import CloseIcon from '../images/icon-cross.svg';
 
 export default function List({ tasks, onRemoveTask, onToggleTaskStatus, onShowActiveTasks, onShowAllTask, onShowCompletedTasks,
     onClearCompletedTasks }) {
 
+
+
     return (
         <>
+
             <div className="list-box">
                 <div className="item-list">
                     {tasks.map((task, index) => (
@@ -46,5 +50,6 @@ export default function List({ tasks, onRemoveTask, onToggleTaskStatus, onShowAc
                 ''
             }
         </>
+
     );
 }
