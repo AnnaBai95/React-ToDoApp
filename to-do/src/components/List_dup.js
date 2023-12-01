@@ -1,20 +1,19 @@
 import '../styles/list.css';
-import DraggableTask from './DraggableTask';
 
 
+import CloseIcon from '../images/icon-cross.svg';
 
-export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCompletedTasks,
-    onClearCompletedTasks, onToggleTaskStatus, onRemoveTask }) {
+export default function List({ onRemoveTask, onToggleTaskStatus, onShowActiveTasks, onShowAllTask, onShowCompletedTasks,
+    onClearCompletedTasks }) {
+
+
 
     return (
         <>
+
             <div className="list-box">
                 <div className="item-list">
-                    <DraggableTask 
-                        tasksList={tasks} 
-                        onToggleTaskToggling={onToggleTaskStatus}
-                        onTaskRemoving={onRemoveTask}
-                         />
+   
                 </div>
                 <div className="list-footer">
                     {tasks.length > 0 ?
