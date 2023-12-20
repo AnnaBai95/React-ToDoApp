@@ -2,6 +2,7 @@ import EntryBar from './EntryBar';
 import List from './List';
 import '../styles/todo.css';
 import { useState } from 'react';
+import {DragDropContext} from 'react-beautiful-dnd';
 
 
 export default function () {
@@ -11,7 +12,9 @@ export default function () {
     const [filterOption, setFilterOption] = useState('all');
 
     const handleAddTask = (newTask) => {
-        setTasks([...tasks, { newTask, completed: false }]);
+        const newTaskItem = {id: Math.random().toString(), newTask, completed: false};
+        //setTasks([...tasks, { newTask, completed: false }]);
+        setTasks([...tasks, newTaskItem]);
     };
 
     const handleRemoveTask = (taskIndex) => {
@@ -51,10 +54,10 @@ export default function () {
 
     const filteredTasks = tasks.filter((task) => {
 
-        if (filterOption == 'active') {
+        if (filterOption === 'active') {
             return !task.completed;
         }
-        else if (filterOption == 'completed') {
+        else if (filterOption === 'completed') {
             return task.completed;
         }
         else {
@@ -68,30 +71,43 @@ export default function () {
 
     }
 
+    const onDragEnd = (result)=>{
+        if(!result.destination)
+            return;
+
+            const updatedTasks = Array.from(tasks);
+            const [reorderedItem] = updatedTasks.splice(result.source.index, 1);
+            updatedTasks.splice(result.destination.index, 0, reorderedItem);
+            setTasks(updatedTasks);
+    }
+
     return (
-       
-            <div className="container">
-                <div className="container-bg"></div>
-                <div className="centered-container">
-                    <div className="header">
-                        <h1>TODO</h1>
-                        <div className="img-state"></div>
-                    </div>
-                    <EntryBar
-                        onAddTask={handleAddTask}
-                        onCompleteAllTask={handleToggleAllTasks}
-                        allTasksAreCompleted={allTasksCompleted}
-                    />
-                    <List
-                        tasks={filteredTasks}
-                        onRemoveTask={handleRemoveTask}
-                        onToggleTaskStatus={handleCompleteTask}
-                        onShowActiveTasks={handleShowActiveTasksOnly}
-                        onShowAllTask={handleShowAllTasks}
-                        onShowCompletedTasks={handleShowCompletedTasksOnly}
-                        onClearCompletedTasks={handleClearCompleted}
-                    />
+
+        <div className="container">
+            <div className="container-bg"></div>
+            <div className="centered-container">
+                <div className="header">
+                    <h1>TODO</h1>
+                    <div className="img-state"></div>
                 </div>
+                <EntryBar
+                    onAddTask={handleAddTask}
+                    onCompleteAllTask={handleToggleAllTasks}
+                    allTasksAreCompleted={allTasksCompleted}
+                />
+                {/* Area where the dragging and dropping will take place is indicated by the DragDropContext */}
+                <DragDropContext onDragEnd={onDragEnd}>
+                <List
+                    tasks={filteredTasks}
+                    onRemoveTask={handleRemoveTask}
+                    onToggleTaskStatus={handleCompleteTask}
+                    onShowActiveTasks={handleShowActiveTasksOnly}
+                    onShowAllTask={handleShowAllTasks}
+                    onShowCompletedTasks={handleShowCompletedTasksOnly}
+                    onClearCompletedTasks={handleClearCompleted}
+                />
+                </DragDropContext>
             </div>
+        </div>
     );
 }
