@@ -9,13 +9,16 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
 
     var uniqueId = Math.random();
 
-
+    const addItemStyle = (isDragging, draggableStyle) => ({
+        background: isDragging ? 'grey' : 'white',
+        ...draggableStyle
+    });
 
     return (
         <>
-            <div className="list-box">
-                <Droppable droppableId={`droppable-${uniqueId}`}>
-                    {(provided) => (
+            <Droppable droppableId={`droppable-${uniqueId}`}>
+                {(provided, snapshot) => (
+                    <div className="list-box">
                         <>
                             <div className="item-list" ref={provided.innerRef} {...provided.droppableProps}>
                                 {tasks.map((task, index) => (
@@ -25,6 +28,8 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                                                 ref={provided.innerRef}
                                                 {...provided.draggableProps}
                                                 {...provided.dragHandleProps}
+                                                style={addItemStyle(snapshot.isDragging,
+                                                    provided.draggableProps.style)}
                                             >
                                                 <DraggableTask
                                                     tasksList={tasks}
@@ -55,11 +60,9 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                                 }
                             </div>
                         </>
-                    )}
-                </Droppable>
-
-            </div>
-
+                    </div>
+                )}
+            </Droppable>
 
             {tasks.length > 0 ?
                 <p className="instructions">Drag and drop to reorder list</p>
