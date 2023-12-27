@@ -10,20 +10,22 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
     var uniqueId = Math.random();
 
     const addItemStyle = (isDragging, draggableStyle) => ({
-        background: isDragging ? 'grey' : 'white',
+        background: isDragging ? 'hsl(233, 11%, 84%)' : 'white',
+        width: isDragging? '50%': 'initial',
+        'text-wrap': isDragging? 'wrap' : 'nowrap',
         ...draggableStyle
     });
 
     return (
         <>
-            <Droppable droppableId={`droppable-${uniqueId}`}>
+            <Droppable droppableId={`droppable-${uniqueId}`} direction='vertical' type="TASK">
                 {(provided, snapshot) => (
                     <div className="list-box">
-                        <>
-                            <div className="item-list" ref={provided.innerRef} {...provided.droppableProps}>
+                        <div>
+                            <div className="item-list" ref={provided.innerRef} {...provided.droppableProps}  style={{overflow: 'hidden' }}>
                                 {tasks.map((task, index) => (
                                     <Draggable key={task.id} index={index} draggableId={task.id}>
-                                        {(provided) => (
+                                        {(provided, snapshot) => (
                                             <div
                                                 ref={provided.innerRef}
                                                 {...provided.draggableProps}
@@ -59,7 +61,7 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                                     <p className='notify'>Your todo list is empty. Add a task to your todo list</p>
                                 }
                             </div>
-                        </>
+                        </div>
                     </div>
                 )}
             </Droppable>
