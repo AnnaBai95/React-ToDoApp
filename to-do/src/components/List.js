@@ -7,10 +7,14 @@ import DraggableTask from './DraggableTask';
 export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCompletedTasks,
     onClearCompletedTasks, onToggleTaskStatus, onRemoveTask }) {
 
+    var uniqueId = Math.random();
+
+
+
     return (
         <>
             <div className="list-box">
-                <Droppable droppableId='droppable'>
+                <Droppable droppableId={`droppable-${uniqueId}`}>
                     {(provided) => (
                         <>
                             <div className="item-list" ref={provided.innerRef} {...provided.droppableProps}>
