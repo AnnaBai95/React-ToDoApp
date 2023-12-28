@@ -4,6 +4,16 @@
     margin-top: 30px;
     color: hsl(235, 19%, 35%);
     box-shadow: 0px 10px 16px -3px hsl(233, 11%, 84%);
+
+}
+
+.list-box .item-list{
+    max-height: 450px;
+    overflow-y: hidden;
+}
+
+.list-box .item-list:hover{
+    overflow-y: auto;
 }
 
 .list-box .item-list .item {

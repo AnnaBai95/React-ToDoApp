@@ -12,7 +12,7 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
     const addItemStyle = (isDragging, draggableStyle) => ({
         background: isDragging ? 'hsl(233, 11%, 84%)' : 'white',
         width: isDragging? '50%': 'initial',
-        'text-wrap': isDragging? 'wrap' : 'nowrap',
+        textWrap: isDragging? 'wrap' : 'nowrap',
         ...draggableStyle
     });
 
@@ -22,7 +22,7 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                 {(provided, snapshot) => (
                     <div className="list-box">
                         <div>
-                            <div className="item-list" ref={provided.innerRef} {...provided.droppableProps}  style={{overflow: 'hidden' }}>
+                            <div className="item-list" ref={provided.innerRef} {...provided.droppableProps}>
                                 {tasks.map((task, index) => (
                                     <Draggable key={task.id} index={index} draggableId={task.id}>
                                         {(provided, snapshot) => (

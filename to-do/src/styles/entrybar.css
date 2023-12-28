@@ -35,6 +35,7 @@ input[type="checkbox"] {
     border: 1px solid #ccc;
     border-radius: 50%;
     background-color: white;
+    transition: border 0.3s ease;
 }
 
 .rounded-check+label:before {
@@ -46,6 +47,16 @@ input[type="checkbox"] {
     border-image-slice: 1;
     border-width: 1px;
     border-radius: 50%;
+    background-color: transparent;
+}
+
+.rounded-check input[type="checkbox"]:hover+label::before {
+    border-color: transparent;
+    background-color: transparent;
+}
+
+.rounded-check input[type="checkbox"]:checked:hover+label::before {
+    border-color: transparent;
     background-color: transparent;
 }
 

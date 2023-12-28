@@ -1,8 +1,28 @@
+html{
+  background-color: hsl(236, 33%, 92%);
+}
+
+
 body{
   font-family: 'Josefin Sans', sans-serif !important;
   font-size: 1.125rem !important;
-  background-color: hsl(236, 33%, 92%);
-  height: 100vh;
+  height: 100%;
   max-width: 1440px;
   margin: auto;
 }
+
+::-webkit-scrollbar{
+
+}
+
+::-webkit-scrollbar-thumb{
+
+}
+
+::-webkit-scrollbar-track{
+  
+}
+
+
+
+
