@@ -1,0 +1,68 @@
+.container {
+    position: relative;
+    height: 100%;
+}
+
+.container-bg {
+    background-image: url('../images/bg-desktop-light.jpg');
+    height: 300px;
+    background-repeat: no-repeat;
+}
+
+.centered-container {
+    width: 246px;
+    margin: -200px auto 20px auto;
+}
+
+.centered-container .header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.centered-container .header h1 {
+    color: white;
+    letter-spacing: 0.5em;
+}
+
+.centered-container .header .img-state {
+    background-image: url("../images/icon-moon.svg");
+    height: 55px;
+    width: 60px;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+
+.instructions {
+    margin-top: 40px;
+    color: hsl(236, 9%, 61%);
+    text-align: center;
+}
+
+
+
+@media (min-width:320px) {
+    .centered-container {
+        width: 300px;
+    }
+}
+
+@media (min-width:480px) {
+    .centered-container {
+        width: 395px;
+    }
+}
+
+@media (min-width:768px) {
+    .centered-container {
+        width: 550px;
+    }
+}
+
+@media (min-width:1024px) {
+    .centered-container {
+        left: 56%;
+        width: 600px;
+    }
+}
