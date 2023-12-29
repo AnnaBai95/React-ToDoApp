@@ -7,7 +7,7 @@ export default function DraggableTask({ tasksList, index, onToggleTaskToggling, 
             <div className="item">
                 <div className="flex-row center-align">
                     <div className="rounded-check">
-                        <input type="checkbox" id={`item${index}`} onChange={() => onToggleTaskToggling(index)}></input>
+                        <input type="checkbox" id={`item${index}`} checked={task.completed ?  true: false} onChange={() => onToggleTaskToggling(index)}></input>
                         <label htmlFor={`item${index}`}></label>
                     </div>
                     <p className={task.completed ? 'task strike' : 'task'}>{task.newTask}</p>
