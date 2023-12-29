@@ -1,0 +1,113 @@
+.list-box {
+    background-color: white;
+    border-radius: 6px;
+    margin-top: 30px;
+    color: hsl(235, 19%, 35%);
+    box-shadow: 0px 10px 16px -3px hsl(233, 11%, 84%);
+    padding: 4px;
+
+}
+
+.list-box .item-list{
+    max-height: 450px;
+    overflow-y: hidden;
+}
+
+.list-box .item-list:hover{
+    overflow-y: auto;
+}
+
+.list-box .item-list .item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid hsl(233, 11%, 84%);
+    padding: 9px 20px;
+}
+
+.list-box .item-list .item:hover {
+    cursor: pointer;
+}
+
+.list-box .item-list .item:hover .close-icon {
+    display: block;
+}
+
+.list-box .list-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 37px;
+    padding: 12px 14px;
+    font-size: 16px;
+    color: hsl(236, 9%, 61%);
+}
+
+
+.list-box .list-footer .flex-gap {
+    display: flex;
+    gap: 16px;
+}
+
+.list-box .list-footer .flex-item{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    gap: 11px;
+}
+
+.text-bold{
+    font-weight: 700;
+}
+
+.text-normal{
+    font-weight: 400;
+}
+
+.active-link{
+    color: hsl(220, 98%, 61%);
+}
+
+.links{
+    cursor: pointer;
+}
+
+.flex-row{
+    display: flex;
+}
+
+.center-align{
+    align-items: center ;
+}
+
+
+.task{
+    margin-top:24px;
+}
+
+.task.strike{
+    color: hsl(233, 11%, 84%);
+    text-decoration: line-through hsl(236, 9%, 61%);
+}
+
+.close-icon{
+    display: none;
+}
+
+.notify{
+    color: hsl(220, 98%, 61%);
+    font-weight: 700;
+    margin: auto;
+}
+
+@media(min-width:768px)
+{
+    .list-box .list-footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .list-box .list-footer .flex-item{
+        flex-direction: row;
+        gap:52px;
+    }
+}
