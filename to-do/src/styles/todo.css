@@ -10,6 +10,7 @@
 }
 
 .centered-container {
+    width: 246px;
     margin: -200px auto 20px auto;
 }
 
@@ -43,7 +44,7 @@
 
 @media (min-width:320px) {
     .centered-container {
-        width: 246px;
+        width: 300px;
     }
 }
 

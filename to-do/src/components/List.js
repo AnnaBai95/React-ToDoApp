@@ -11,8 +11,8 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
 
     const addItemStyle = (isDragging, draggableStyle) => ({
         background: isDragging ? 'hsl(233, 11%, 84%)' : 'white',
-        width: isDragging? '50%': 'initial',
-        textWrap: isDragging? 'wrap' : 'nowrap',
+        width: isDragging ? '50%' : 'initial',
+        textWrap: isDragging ? 'wrap' : 'nowrap',
         ...draggableStyle
     });
 
@@ -49,11 +49,13 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                             <div className="list-footer">
                                 {tasks.length > 0 ?
                                     <>
-                                        <span>{tasks.length > 0 ? tasks.length : 0} items left</span>
-                                        <div className="flex-gap text-bold">
-                                            <a className="active-link links" onClick={onShowAllTask}>All</a>
-                                            <a className="links" onClick={onShowActiveTasks}>Active</a>
-                                            <a className="links" onClick={onShowCompletedTasks}>Completed</a>
+                                        <div className='flex-item'>
+                                            <span>{tasks.length > 0 ? tasks.length : 0} items left</span>
+                                            <div className="flex-gap text-bold">
+                                                <a className="active-link links" onClick={onShowAllTask}>All</a>
+                                                <a className="links" onClick={onShowActiveTasks}>Active</a>
+                                                <a className="links" onClick={onShowCompletedTasks}>Completed</a>
+                                            </div>
                                         </div>
                                         <a className="links" onClick={() => onClearCompletedTasks()}>Clear Completed</a>
                                     </>

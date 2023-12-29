@@ -56,8 +56,7 @@ input[type="checkbox"] {
 }
 
 .rounded-check input[type="checkbox"]:checked:hover+label::before {
-    border-color: transparent;
-    background-color: transparent;
+    border-image: none;
 }
 
 .rounded-check input[type="checkbox"]:checked+label::before {

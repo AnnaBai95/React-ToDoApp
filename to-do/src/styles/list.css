@@ -4,6 +4,7 @@
     margin-top: 30px;
     color: hsl(235, 19%, 35%);
     box-shadow: 0px 10px 16px -3px hsl(233, 11%, 84%);
+    padding: 4px;
 
 }
 
@@ -34,7 +35,8 @@
 
 .list-box .list-footer {
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    gap: 37px;
     padding: 12px 14px;
     font-size: 16px;
     color: hsl(236, 9%, 61%);
@@ -44,6 +46,13 @@
 .list-box .list-footer .flex-gap {
     display: flex;
     gap: 16px;
+}
+
+.list-box .list-footer .flex-item{
+    display: flex;
+    flex-direction: column;
+    align-items:start;
+    gap: 11px;
 }
 
 .text-bold{
@@ -88,4 +97,17 @@
     color: hsl(220, 98%, 61%);
     font-weight: 700;
     margin: auto;
+}
+
+@media(min-width:768px)
+{
+    .list-box .list-footer {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .list-box .list-footer .flex-item{
+        flex-direction: row;
+        gap:52px;
+    }
 }
