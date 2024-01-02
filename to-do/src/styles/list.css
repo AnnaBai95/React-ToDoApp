@@ -38,7 +38,7 @@
     flex-direction: column;
     gap: 37px;
     padding: 12px 14px;
-    font-size: 16px;
+    font-size: 1rem;
     color: hsl(236, 9%, 61%);
 }
 
@@ -64,11 +64,21 @@
 }
 
 .active-link{
-    color: hsl(220, 98%, 61%);
+    color: hsl(220, 98%, 61%) !important;
 }
 
 .links{
     cursor: pointer;
+    border: none;
+    background: none;
+    font-size: 1rem;
+    color: hsl(236, 9%, 61%);
+    font-weight: 700;
+    font-family: 'Josefin Sans', sans-serif !important;
+}
+
+.links .clear{
+    text-align: start;
 }
 
 .flex-row{

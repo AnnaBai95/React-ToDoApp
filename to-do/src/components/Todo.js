@@ -2,7 +2,7 @@ import EntryBar from './EntryBar';
 import List from './List';
 import '../styles/todo.css';
 import { useState } from 'react';
-import {DragDropContext} from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 
 
 export default function () {
@@ -12,7 +12,7 @@ export default function () {
     const [filterOption, setFilterOption] = useState('all');
 
     const handleAddTask = (newTask) => {
-        const newTaskItem = {id: Math.random().toString(), newTask, completed: false};
+        const newTaskItem = { id: Math.random().toString(), newTask, completed: false };
         //setTasks([...tasks, { newTask, completed: false }]);
         setTasks([...tasks, newTaskItem]);
     };
@@ -52,6 +52,7 @@ export default function () {
         setFilterOption('completed');
     }
 
+
     const filteredTasks = tasks.filter((task) => {
 
         if (filterOption === 'active') {
@@ -71,14 +72,14 @@ export default function () {
 
     }
 
-    const onDragEnd = (result)=>{
-        if(!result.destination)
+    const onDragEnd = (result) => {
+        if (!result.destination)
             return;
 
-            const updatedTasks = Array.from(tasks);
-            const [reorderedItem] = updatedTasks.splice(result.source.index, 1);
-            updatedTasks.splice(result.destination.index, 0, reorderedItem);
-            setTasks(updatedTasks);
+        const updatedTasks = Array.from(tasks);
+        const [reorderedItem] = updatedTasks.splice(result.source.index, 1);
+        updatedTasks.splice(result.destination.index, 0, reorderedItem);
+        setTasks(updatedTasks);
     }
 
     return (
@@ -97,15 +98,15 @@ export default function () {
                 />
                 {/* Area where the dragging and dropping will take place is indicated by the DragDropContext */}
                 <DragDropContext onDragEnd={onDragEnd}>
-                <List
-                    tasks={filteredTasks}
-                    onRemoveTask={handleRemoveTask}
-                    onToggleTaskStatus={handleCompleteTask}
-                    onShowActiveTasks={handleShowActiveTasksOnly}
-                    onShowAllTask={handleShowAllTasks}
-                    onShowCompletedTasks={handleShowCompletedTasksOnly}
-                    onClearCompletedTasks={handleClearCompleted}
-                />
+                    <List
+                        tasks={filteredTasks}
+                        onRemoveTask={handleRemoveTask}
+                        onToggleTaskStatus={handleCompleteTask}
+                        onShowActiveTasks={handleShowActiveTasksOnly}
+                        onShowAllTask={handleShowAllTasks}
+                        onShowCompletedTasks={handleShowCompletedTasksOnly}
+                        onClearCompletedTasks={handleClearCompleted}
+                    />
                 </DragDropContext>
             </div>
         </div>
