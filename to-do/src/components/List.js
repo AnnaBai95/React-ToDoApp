@@ -13,9 +13,10 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
     var uniqueId = Math.random();
 
     const addItemStyle = (isDragging, draggableStyle) => ({
-        background: isDragging ? 'hsl(233, 11%, 84%)' : 'white',
+        background: isDragging ? 'hsl(236, 33%, 92%)' : 'white',
         width: isDragging ? '50%' : 'initial',
         textWrap: isDragging ? 'wrap' : 'nowrap',
+        color: isDragging ? 'hsl(235, 19%, 35%) important' : 'initial',
         ...draggableStyle
     });
 
