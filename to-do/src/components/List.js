@@ -101,41 +101,45 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                 )}
             </Droppable>
 
-            <div className="flex-gap text-bold filter-mob list-box">
-                <button className={`links ${activeLink === 'all' ? 'active-link' : ''}`}
-                    onClick={() => {
-                        onShowAllTask();
-                        handleSetActiveLink("all");
-                    }}
-                >
-                    All
-                </button>
-                <button className={`links ${activeLink === 'active' ? 'active-link' : ''}`}
-                    onClick={() => {
-                        onShowActiveTasks();
-                        handleSetActiveLink("active");
-                    }}
-                >
-                    Active
-                </button>
-                {/* show the completed button only if there is atleast one completed task in the list to fix the issue
-                                                where if the completed button is clicked and there are no completed tasks the array is cleared */}
-                {tasks.some(tasks => tasks.completed) && (
-                    <button className={`links ${activeLink === 'completed' ? 'active-link' : ''}`}
-                        onClick={() => {
-                            onShowCompletedTasks();
-                            handleSetActiveLink("completed");
-                        }}
-                    >
-                        Completed
-                    </button>
-                )}
-            </div>
 
             {tasks.length > 0 ?
-                <p className="instructions">Drag and drop to reorder list</p>
+                <>
+                    <div className="flex-gap text-bold filter-mob list-box">
+                        <button className={`links ${activeLink === 'all' ? 'active-link' : ''}`}
+                            onClick={() => {
+                                onShowAllTask();
+                                handleSetActiveLink("all");
+                            }}
+                        >
+                            All
+                        </button>
+                        <button className={`links ${activeLink === 'active' ? 'active-link' : ''}`}
+                            onClick={() => {
+                                onShowActiveTasks();
+                                handleSetActiveLink("active");
+                            }}
+                        >
+                            Active
+                        </button>
+                        {/* show the completed button only if there is atleast one completed task in the list to fix the issue
+                                                where if the completed button is clicked and there are no completed tasks the array is cleared */}
+                        {tasks.some(tasks => tasks.completed) && (
+                            <button className={`links ${activeLink === 'completed' ? 'active-link' : ''}`}
+                                onClick={() => {
+                                    onShowCompletedTasks();
+                                    handleSetActiveLink("completed");
+                                }}
+                            >
+                                Completed
+                            </button>
+                        )}
+                    </div>
+
+                    <p className="instructions">Drag and drop to reorder list</p>
+                </>
                 :
                 ''
+
             }
         </>
 
