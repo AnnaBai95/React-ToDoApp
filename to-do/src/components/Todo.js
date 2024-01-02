@@ -54,7 +54,6 @@ export default function () {
 
 
     const filteredTasks = tasks.filter((task) => {
-
         if (filterOption === 'active') {
             return !task.completed;
         }
@@ -66,10 +65,15 @@ export default function () {
         }
     });
 
+    console.log("Filtered tasks", filteredTasks);
+
     const handleClearCompleted = () => {
         const incompleteTasks = tasks.filter((task) => !task.completed);
         setTasks(incompleteTasks);
 
+        // Check if all tasks are completed after clearing completed tasks
+        const completed = tasks.every((task) => task.completed);
+        setAllTasksCompleted(completed);
     }
 
     const onDragEnd = (result) => {

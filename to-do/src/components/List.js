@@ -23,6 +23,7 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
         setActiveLink(link);
     }
 
+
     return (
         <>
             <Droppable droppableId={`droppable-${uniqueId}`} direction='vertical' type="TASK">
@@ -75,14 +76,18 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                                                 >
                                                     Active
                                                 </button>
-                                                <button className={`links ${activeLink === 'completed' ? 'active-link' : ''}`}
-                                                    onClick={() => {
-                                                        onShowCompletedTasks();
-                                                        handleSetActiveLink("completed");
-                                                    }}
-                                                >
-                                                    Completed
-                                                </button>
+                                                {/* show the completed button only if there is atleast one completed task in the list to fix the issue
+                                                where if the completed button is clicked and there are no completed tasks the array is cleared */}
+                                                {tasks.some(tasks => tasks.completed) && (
+                                                    <button className={`links ${activeLink === 'completed' ? 'active-link' : ''}`}
+                                                        onClick={() => {
+                                                            onShowCompletedTasks();
+                                                            handleSetActiveLink("completed");
+                                                        }}
+                                                    >
+                                                        Completed
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
                                         <button className="links clear" onClick={() => onClearCompletedTasks()}>Clear Completed</button>
