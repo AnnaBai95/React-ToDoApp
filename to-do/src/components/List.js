@@ -1,11 +1,14 @@
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import '../styles/list.css';
 import DraggableTask from './DraggableTask';
+import { useState } from 'react';
 
 
 
 export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCompletedTasks,
     onClearCompletedTasks, onToggleTaskStatus, onRemoveTask }) {
+
+    const [activeLink, setActiveLink] = useState('all'); // initialize with all as the default link
 
     var uniqueId = Math.random();
 
@@ -15,6 +18,11 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
         textWrap: isDragging ? 'wrap' : 'nowrap',
         ...draggableStyle
     });
+
+    const handleSetActiveLink = (link) => {
+        setActiveLink(link);
+    }
+
 
     return (
         <>
@@ -51,13 +59,38 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                                     <>
                                         <div className='flex-item'>
                                             <span>{tasks.length > 0 ? tasks.length : 0} items left</span>
-                                            <div className="flex-gap text-bold">
-                                                <a className="active-link links" onClick={onShowAllTask}>All</a>
-                                                <a className="links" onClick={onShowActiveTasks}>Active</a>
-                                                <a className="links" onClick={onShowCompletedTasks}>Completed</a>
+                                            <div className="flex-gap text-bold filter-lg">
+                                                <button className={`links ${activeLink === 'all' ? 'active-link' : ''}`}
+                                                    onClick={() => {
+                                                        onShowAllTask();
+                                                        handleSetActiveLink("all");
+                                                    }}
+                                                >
+                                                    All
+                                                </button>
+                                                <button className={`links ${activeLink === 'active' ? 'active-link' : ''}`}
+                                                    onClick={() => {
+                                                        onShowActiveTasks();
+                                                        handleSetActiveLink("active");
+                                                    }}
+                                                >
+                                                    Active
+                                                </button>
+                                                {/* show the completed button only if there is atleast one completed task in the list to fix the issue
+                                                where if the completed button is clicked and there are no completed tasks the array is cleared */}
+                                                {tasks.some(tasks => tasks.completed) && (
+                                                    <button className={`links ${activeLink === 'completed' ? 'active-link' : ''}`}
+                                                        onClick={() => {
+                                                            onShowCompletedTasks();
+                                                            handleSetActiveLink("completed");
+                                                        }}
+                                                    >
+                                                        Completed
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
-                                        <a className="links" onClick={() => onClearCompletedTasks()}>Clear Completed</a>
+                                        <button className="links clear" onClick={() => onClearCompletedTasks()}>Clear Completed</button>
                                     </>
                                     :
                                     <p className='notify'>Your todo list is empty. Add a task to your todo list</p>
@@ -67,6 +100,37 @@ export default function List({ tasks, onShowActiveTasks, onShowAllTask, onShowCo
                     </div>
                 )}
             </Droppable>
+
+            <div className="flex-gap text-bold filter-mob list-box">
+                <button className={`links ${activeLink === 'all' ? 'active-link' : ''}`}
+                    onClick={() => {
+                        onShowAllTask();
+                        handleSetActiveLink("all");
+                    }}
+                >
+                    All
+                </button>
+                <button className={`links ${activeLink === 'active' ? 'active-link' : ''}`}
+                    onClick={() => {
+                        onShowActiveTasks();
+                        handleSetActiveLink("active");
+                    }}
+                >
+                    Active
+                </button>
+                {/* show the completed button only if there is atleast one completed task in the list to fix the issue
+                                                where if the completed button is clicked and there are no completed tasks the array is cleared */}
+                {tasks.some(tasks => tasks.completed) && (
+                    <button className={`links ${activeLink === 'completed' ? 'active-link' : ''}`}
+                        onClick={() => {
+                            onShowCompletedTasks();
+                            handleSetActiveLink("completed");
+                        }}
+                    >
+                        Completed
+                    </button>
+                )}
+            </div>
 
             {tasks.length > 0 ?
                 <p className="instructions">Drag and drop to reorder list</p>
