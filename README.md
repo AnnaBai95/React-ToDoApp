@@ -35,14 +35,7 @@ Users should be able to:
 - **Bonus**: Drag and drop to reorder items on the list
 
 ### Recording
-
-![Screen recording](./frontendmentor/recording/to-do-screen.mp4)
-
-
-
 https://github.com/AnnaBai95/React-ToDoApp/assets/85046556/70e9f87f-9abc-4c70-b558-8d19aa9822a3
-
-
 
 ### Links
 
