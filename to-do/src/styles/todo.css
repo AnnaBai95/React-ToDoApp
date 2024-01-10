@@ -4,7 +4,6 @@
 }
 
 .container-bg {
-    background-image: url('../images/bg-desktop-light.jpg');
     height: 300px;
     background-repeat: no-repeat;
 }
@@ -25,13 +24,11 @@
     letter-spacing: 0.5em;
 }
 
-.centered-container .header .img-state {
-    background-image: url("../images/icon-moon.svg");
-    height: 55px;
-    width: 60px;
-    background-repeat: no-repeat;
+.centered-container .header .button-state {
     cursor: pointer;
-    margin-top:26px;
+    background: transparent;
+    border: none;
+    outline: none;
 }
 
 
