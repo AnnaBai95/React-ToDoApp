@@ -20,8 +20,19 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 1px solid hsl(233, 11%, 84%);
     padding: 9px 20px;
+}
+
+.item-light{
+    background-color: white;
+    border-bottom: 1px solid hsl(233, 11%, 84%);
+}
+
+.item-dark{
+    background-color: hsl(235, 24%, 19%);
+    border-bottom: 1px solid hsl(233, 14%, 35%);
+    
+    color: white;
 }
 
 .list-box .item-list .item:hover {
@@ -107,6 +118,11 @@
 .notify{
     color: hsl(220, 98%, 61%);
     font-weight: 700;
+    margin: auto;
+}
+.notify-dark{
+    color: rgb(117, 117, 117);;
+    font-weight: 400;
     margin: auto;
 }
 

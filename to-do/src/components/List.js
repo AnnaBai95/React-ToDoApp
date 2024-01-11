@@ -31,7 +31,7 @@ export default function List({
   const BoxShadows = isDarkMode
     ? "none"
     : "0px 10px 16px -3px hsl(233, 11%, 84%)";
-  const backgroundColor = isDarkMode ? "hsl(237, 14%, 26%)" : "white";
+  const backgroundColor = isDarkMode ? "hsl(235, 24%, 19%)" : "white";
 
   return (
     <>
@@ -69,6 +69,7 @@ export default function List({
                           onTaskRemoving={onRemoveTask}
                           key={task.id}
                           index={index}
+                          isDarkMode={isDarkMode}
                         />
                       </div>
                     )}
@@ -131,7 +132,7 @@ export default function List({
                     </button>
                   </>
                 ) : (
-                  <p className="notify">
+                  <p className={isDarkMode ? "notify-dark" : "notify"}>
                     Your todo list is empty. Add a task to your todo list
                   </p>
                 )}
@@ -181,7 +182,12 @@ export default function List({
             )}
           </div>
 
-          <p className="instructions">Drag and drop to reorder list</p>
+          <p
+            className="instructions"
+            style={{ color: isDarkMode ? "white" : "hsl(236, 9%, 61%)" }}
+          >
+            Drag and drop to reorder list
+          </p>
         </>
       ) : (
         ""

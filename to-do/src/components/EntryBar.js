@@ -22,7 +22,7 @@ export default function EntryBar({
     }
   };
 
-  const textBoxBackgroundColor = isDarkMode ? "hsl(237, 14%, 26%)" : "white";
+  const textBoxBackgroundColor = isDarkMode ? "hsl(235, 24%, 19%)" : "white";
 
   return (
     <div

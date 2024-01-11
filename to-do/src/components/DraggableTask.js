@@ -1,10 +1,10 @@
 import CloseIcon from '../images/icon-cross.svg';
 
-export default function DraggableTask({ tasksList, index, onToggleTaskToggling, onTaskRemoving }) {
+export default function DraggableTask({ tasksList, index, onToggleTaskToggling, onTaskRemoving, isDarkMode }) {
 
     const task = tasksList[index];
     return (
-            <div className="item">
+            <div className={`item ${isDarkMode ? "item-dark" : 'item-light'}`}>
                 <div className="flex-row center-align">
                     <div className="rounded-check">
                         <input type="checkbox" id={`item${index}`} checked={task.completed ?  true: false} onChange={() => onToggleTaskToggling(index)}></input>

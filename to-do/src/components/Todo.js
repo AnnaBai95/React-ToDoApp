@@ -97,7 +97,7 @@ export default function () {
 
   useEffect(() => {
     document.documentElement.style.background = isDarkMode
-      ? "hsl(237, 14%, 26%)"
+      ? "hsl(235, 21%, 11%)"
       : "white";
   });
 
