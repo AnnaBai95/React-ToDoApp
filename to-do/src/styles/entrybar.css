@@ -3,13 +3,31 @@ input[type="checkbox"] {
 }
 
 .input-group {
-    background: white;
     height: 50px;
     border-radius: 6px;
     padding: 9px 20px;
     display: flex;
     align-items: center;
 }
+
+.input-group-light {
+    background-color: white;
+}
+
+.input-group-dark {
+    background-color: hsl(235, 24%, 19%);
+}
+
+.input-group-dark .input-box {
+    background-color: hsl(235, 24%, 19%);
+}
+
+.input-group-dark input[type="text"] {
+    color: hsl(234, 39%, 85%);
+    caret-color: hsl(220, 98%, 61%);
+}
+
+
 
 .input-group input[type="text"] {
     font-size: 1.125rem;

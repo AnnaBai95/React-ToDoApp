@@ -10,24 +10,22 @@ export default function EntryBar({
   const [taskInput, setTaskInput] = useState("");
 
   const handleAddTask = () => {
-    if (taskInput.trim() != "") {
+    if (taskInput.trim() !== "") {
       onAddTask(taskInput);
       setTaskInput("");
     }
   };
 
   const handleEnterKeyUp = (e) => {
-    if (e.key == "Enter") {
+    if (e.key === "Enter") {
       handleAddTask();
     }
   };
 
-  const textBoxBackgroundColor = isDarkMode ? "hsl(235, 24%, 19%)" : "white";
 
   return (
     <div
-      className="input-group"
-      style={{ backgroundColor: textBoxBackgroundColor }}
+      className={`input-group ${isDarkMode ? 'input-group-dark' : 'input-group-light'}`}
     >
       <div className="rounded-check">
         <input
@@ -46,7 +44,6 @@ export default function EntryBar({
         onKeyUp={handleEnterKeyUp}
         onChange={(e) => setTaskInput(e.target.value)}
         checked={allTasksAreCompleted}
-        style={{ backgroundColor: textBoxBackgroundColor }}
       ></input>
     </div>
   );

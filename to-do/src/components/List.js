@@ -28,10 +28,6 @@ export default function List({
     setActiveLink(link);
   };
 
-  const BoxShadows = isDarkMode
-    ? "none"
-    : "0px 10px 16px -3px hsl(233, 11%, 84%)";
-  const backgroundColor = isDarkMode ? "hsl(235, 24%, 19%)" : "white";
 
   return (
     <>
@@ -42,8 +38,7 @@ export default function List({
       >
         {(provided, snapshot) => (
           <div
-            className="list-box"
-            style={{ boxShadow: BoxShadows, backgroundColor: backgroundColor }}
+            className={`list-box ${isDarkMode ? "box-dark" : ""}`}
           >
             <div>
               <div
@@ -88,7 +83,8 @@ export default function List({
                         <button
                           className={`links ${
                             activeLink === "all" ? "active-link" : ""
-                          }`}
+                          }${isDarkMode ? "links-dark" : ""}
+                          `}
                           onClick={() => {
                             onShowAllTask();
                             handleSetActiveLink("all");
@@ -99,7 +95,7 @@ export default function List({
                         <button
                           className={`links ${
                             activeLink === "active" ? "active-link" : ""
-                          }`}
+                          }  ${isDarkMode ? "links-dark" : ""}`}
                           onClick={() => {
                             onShowActiveTasks();
                             handleSetActiveLink("active");
@@ -113,7 +109,7 @@ export default function List({
                           <button
                             className={`links ${
                               activeLink === "completed" ? "active-link" : ""
-                            }`}
+                            }  ${isDarkMode ? "links-dark" : ""}`}
                             onClick={() => {
                               onShowCompletedTasks();
                               handleSetActiveLink("completed");
@@ -125,7 +121,9 @@ export default function List({
                       </div>
                     </div>
                     <button
-                      className="links clear"
+                      className={`links clear ${
+                        isDarkMode ? "links-dark" : ""
+                      }`}
                       onClick={() => onClearCompletedTasks()}
                     >
                       Clear Completed
@@ -144,9 +142,11 @@ export default function List({
 
       {tasks.length > 0 ? (
         <>
-          <div className="flex-gap text-bold filter-mob list-box">
+          <div className={`flex-gap text-bold filter-mob list-box ${isDarkMode ? "box-dark" : ""}`}>
             <button
-              className={`links ${activeLink === "all" ? "active-link" : ""}`}
+              className={`links ${activeLink === "all" ? "active-link" : ""} ${
+                isDarkMode ? "links-dark" : ""
+              }`}
               onClick={() => {
                 onShowAllTask();
                 handleSetActiveLink("all");
@@ -157,7 +157,7 @@ export default function List({
             <button
               className={`links ${
                 activeLink === "active" ? "active-link" : ""
-              }`}
+              } ${isDarkMode ? "links-dark" : ""}`}
               onClick={() => {
                 onShowActiveTasks();
                 handleSetActiveLink("active");
@@ -171,7 +171,7 @@ export default function List({
               <button
                 className={`links ${
                   activeLink === "completed" ? "active-link" : ""
-                }`}
+                } ${isDarkMode ? "links-dark" : ""}`}
                 onClick={() => {
                   onShowCompletedTasks();
                   handleSetActiveLink("completed");
