@@ -99,7 +99,7 @@ export default function List({
                         <button
                           className={`links ${
                             activeLink === "all" ? "active-link" : ""
-                          }${isDarkMode ? "links-dark" : ""}
+                          }${isDarkMode ? " links-dark" : ""}
                           `}
                           onClick={() => {
                             onShowAllTask();
@@ -111,7 +111,7 @@ export default function List({
                         <button
                           className={`links ${
                             activeLink === "active" ? "active-link" : ""
-                          }  ${isDarkMode ? "links-dark" : ""}`}
+                          }  ${isDarkMode ? " links-dark" : ""}`}
                           onClick={() => {
                             onShowActiveTasks();
                             handleSetActiveLink("active");
