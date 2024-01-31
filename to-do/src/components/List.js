@@ -17,12 +17,27 @@ export default function List({
 
   var uniqueId = Math.random();
 
-  const addItemStyle = (isDragging, draggableStyle) => ({
-    background: isDragging ? "hsl(236, 33%, 92%)" : "white",
-    width: isDragging ? "50%" : "initial",
-    textWrap: isDragging ? "wrap" : "nowrap",
-    ...draggableStyle,
-  });
+  // const addItemStyle = (isDragging, draggableStyle) => ({
+ 
+  //   background: isDragging ? "hsl(236, 33%, 92%) !important" : "pink",
+  //   width: isDragging ? "50%" : "initial",
+  //   textWrap: isDragging ? "wrap" : "nowrap",
+  //   ...draggableStyle,
+  // });
+
+
+  const addItemStyle = (isDragging, draggableStyle, isDarkMode) => {
+    const draggingBackgroundColor = isDarkMode ? "hsl(237, 14%, 26%)" : "hsl(236, 33%, 92%)"; 
+    const notDraggingBackgroundColor = isDarkMode ? "transparent" : "transparent";
+    
+    return {
+      background: isDragging ? draggingBackgroundColor : notDraggingBackgroundColor,
+      width: isDragging ? "50%" : "initial",
+      whiteSpace: isDragging ? "wrap" : "nowrap",
+      ...draggableStyle,
+    };
+  };
+  
 
   const handleSetActiveLink = (link) => {
     setActiveLink(link);
@@ -55,7 +70,8 @@ export default function List({
                         {...provided.dragHandleProps}
                         style={addItemStyle(
                           snapshot.isDragging,
-                          provided.draggableProps.style
+                          provided.draggableProps.style,
+                          isDarkMode
                         )}
                       >
                         <DraggableTask

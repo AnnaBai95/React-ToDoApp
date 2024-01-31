@@ -8,10 +8,13 @@ export default function DraggableTask({
   isDarkMode,
 }) {
   const task = tasksList[index];
+
   return (
     <div className={`item ${isDarkMode ? "item-dark" : "item-light"}`}>
       <div className="flex-row center-align">
-        <div className="rounded-check">
+        <div
+          className={`rounded-check ${isDarkMode ? "rounded-check-dark" : ""}`}
+        >
           <input
             type="checkbox"
             id={`item${index}`}

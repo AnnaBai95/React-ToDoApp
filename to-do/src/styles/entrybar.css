@@ -56,30 +56,23 @@ input[type="checkbox"] {
     transition: border 0.3s ease;
 }
 
+.rounded-check-dark label::before {
+    background-color: transparent;
+}
+
 .rounded-check+label:before {
     content: "";
 }
 
-.rounded-check input[type="checkbox"]+label:hover::before {
-    border-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
-    border-image-slice: 1;
-    border-width: 1px;
-    border-radius: 50%;
-    background-color: transparent;
-}
 
 .rounded-check input[type="checkbox"]:hover+label::before {
-    border-color: transparent;
-    background-color: transparent;
+    border: 1px solid hsl(280, 87%, 65%);
 }
 
-.rounded-check input[type="checkbox"]:checked:hover+label::before {
-    border-color: transparent;
-    background-color: transparent;
-}
 
 .rounded-check input[type="checkbox"]:checked+label::before {
     background-image: linear-gradient(to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    border:none;
 }
 
 .rounded-check input[type="checkbox"]:checked+label::after {

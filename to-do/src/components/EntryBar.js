@@ -22,29 +22,32 @@ export default function EntryBar({
     }
   };
 
-
   return (
-    <div
-      className={`input-group ${isDarkMode ? 'input-group-dark' : 'input-group-light'}`}
-    >
-      <div className="rounded-check">
-        <input
-          type="checkbox"
-          id="allcheck"
-          onChange={onCompleteAllTask} 
-        ></input>
-        <label htmlFor="allcheck"></label>
-      </div>
+    <>
+      <div
+        className={`input-group ${
+          isDarkMode ? "input-group-dark" : "input-group-light"
+        }`}
+      >
+        <div className={`rounded-check ${isDarkMode ? "rounded-check-dark" : ""}`}>
+          <input
+            type="checkbox"
+            id="allcheck"
+            onChange={onCompleteAllTask}
+          ></input>
+          <label htmlFor="allcheck"></label>
+        </div>
 
-      <input
-        type="text"
-        placeholder="Create a new todo..."
-        className="input-box"
-        value={taskInput}
-        onKeyUp={handleEnterKeyUp}
-        onChange={(e) => setTaskInput(e.target.value)}
-        checked={allTasksAreCompleted}
-      ></input>
-    </div>
+        <input
+          type="text"
+          placeholder="Create a new todo..."
+          className="input-box"
+          value={taskInput}
+          onKeyUp={handleEnterKeyUp}
+          onChange={(e) => setTaskInput(e.target.value)}
+          checked={allTasksAreCompleted}
+        ></input>
+      </div>
+    </>
   );
 }

@@ -24,12 +24,10 @@
 }
 
 .item-light {
-    background-color: white;
     border-bottom: 1px solid hsl(233, 11%, 84%);
 }
 
 .item-dark {
-    background-color: hsl(235, 24%, 19%);
     border-bottom: 1px solid hsl(233, 14%, 35%);
     color: hsl(236, 33%, 92%);
 }
