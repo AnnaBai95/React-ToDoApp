@@ -98,7 +98,7 @@ export default function () {
   useEffect(() => {
     document.documentElement.style.background = isDarkMode
       ? "hsl(235, 21%, 11%)"
-      : "white";
+      : "hsl(236, 33%, 92%)";
   });
 
   //toggle the background images
