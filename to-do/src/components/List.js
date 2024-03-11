@@ -17,13 +17,6 @@ export default function List({
 
   var uniqueId = Math.random();
 
-  // const addItemStyle = (isDragging, draggableStyle) => ({
- 
-  //   background: isDragging ? "hsl(236, 33%, 92%) !important" : "pink",
-  //   width: isDragging ? "50%" : "initial",
-  //   textWrap: isDragging ? "wrap" : "nowrap",
-  //   ...draggableStyle,
-  // });
 
 
   const addItemStyle = (isDragging, draggableStyle, isDarkMode) => {
